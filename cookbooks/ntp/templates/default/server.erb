@@ -1,0 +1,14 @@
+#<%=node['ethnalaya']['banner']%>
+###### ntp server config #####
+tinker panic 0
+<% @node['ntp']['server']['timeservers'].each do |ntp_server| %>
+server <%= ntp_server %>
+<% end %>
+
+restrict default kod notrap nomodify nopeer noquery
+restrict <%= node['ethnalaya']['iprange'] -%> mask <%= node['ethnalaya']['netmask'] -%> nomodify notrap
+restrict 127.0.0.1 nomodify
+server 127.127.1.0 # local clock
+fudge 127.127.1.0 stratum 10
+driftfile <%= node['ntp']['server']['driftfile'] %>
+logfile <%= node['ntp']['server']['logfile'] %>

@@ -1,0 +1,6 @@
+#<%= node['ethnalaya']['banner']%>
+###### ntp client config ####
+tinker panic 0
+server <%= @ntp_server %>
+driftfile <%= node['ntp']['client']['driftfile'] %>
+logfile <%= node['ntp']['client']['logfile'] %>

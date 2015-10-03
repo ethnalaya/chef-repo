@@ -1,0 +1,9 @@
+{
+  "name":"ntpserver",
+  "description":"NTP Server Role",
+  "default_attributes":{
+  },
+  "run_list":[
+    "recipe[ntp::server]"
+  ]
+}

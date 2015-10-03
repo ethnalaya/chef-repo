@@ -1,0 +1,29 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-trusty
+    driver:
+      box: trusty64
+  - name: centos-7
+    driver:
+      box: centos71_1503
+suites:
+  - name: server
+    run_list:
+      - recipe[ntp::server]
+    attributes: {
+			'ethnalaya':
+				{'banner': "Test Banner"}
+		}
+  - name: agent
+    run_list:
+      - recipe[ntp::client]
+    attributes: {
+			'ethnalaya':
+				{'banner': "Test Banner"}
+		}
