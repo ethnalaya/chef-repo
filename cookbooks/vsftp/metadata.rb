@@ -1,0 +1,8 @@
+name             'vsftp'
+maintainer       'Rajesh Jonnalagadda'
+maintainer_email 'vlnrajeshj@gmail.com'
+license          'All rights reserved'
+description      'Installs/Configures vsftp'
+long_description 'Installs/Configures vsftp'
+version          '0.1.0'
+depends          'firewalld'

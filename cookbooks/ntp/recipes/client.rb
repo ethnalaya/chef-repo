@@ -17,6 +17,6 @@ if node[:fqdn] != ntp_server
       :ntp_server => ntp_server
     )
     sensitive true
-    notifies :restart, "service[#{node['ntp']['service']['name'][node['platform']]}]", :delayed
+    notifies :restart, "service[#{node['ntp']['service']['name']}]", :delayed
   end
 end

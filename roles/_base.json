@@ -5,15 +5,19 @@
     "ethnalaya":{
       "banner": "This File is managed by Chef, do not edit by Hand!!!. Please contact admin@example.com for details",
       "domain_name":"example.com",
+      "nis_domain":"ethnalaya",
       "firewall_zone": "public",
       "intlan":"192.168.0.0/24",
       "extlan":"192.168.1.0/24",
-      "primary_server": "server1.example.com",
-      "iprange": "192.168.0.0",
-      "netmask": "255.255.255.0"
+      "primary_server_name": "server1.example.com",
+      "primary_server_addr": "192.168.0.1",
+      "netmask": "255.255.255.0",
+      "primary_nameserver":"192.168.0.1",
+      "seconday_nameserver":"192.168.1.1"
     }
   },
   "run_list":[
+    "recipe[firewalld::default]",
     "recipe[ntp::client]"
   ]
 }

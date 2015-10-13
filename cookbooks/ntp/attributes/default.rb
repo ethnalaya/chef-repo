@@ -21,18 +21,15 @@ default['ntp']['server']['logfile'] = '/var/log/ntp.log'
 ############################
 ## Service Attribute Section
 ############################
-
-default['ntp']['service']['name'] = {
-  'centos' => 'ntpd',
-  'ubuntu' => 'ntp'
-}
-default['ntp']['service']['firewall'] =  {
-  'service_name' => 'ntp'
-}
-
-default['ntp']['service']['owner'] = 'ntp'
-default['ntp']['service']['group'] = 'ntp'
-
+default['ntp']['service']['owner'] = 'root'
+default['ntp']['service']['group'] = 'root'
+case node['platform']
+  when 'centos'
+    default['ntp']['service']['firewalld_name'] = 'ntp'
+    default['ntp']['service']['name']  = 'ntpd'
+  when 'ubuntu'
+    default['ntp']['service']['name']  = 'ntp'
+end
 ############################
 ## Client Attribute Section
 ############################

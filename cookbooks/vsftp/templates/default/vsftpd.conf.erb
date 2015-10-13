@@ -1,0 +1,16 @@
+#<%= node['ethnalaya']['banner'] %>
+anonymous_enable=YES
+listen=YES
+local_enable=NO
+write_enable=NO
+listen_port=21
+anon_root=/var/ftp
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+ftpd_banner=Welcome to ethnalaya-FTP service.
+listen_ipv6=NO
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
